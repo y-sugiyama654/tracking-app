@@ -37,11 +37,20 @@ jobs:
           NODE_ENV: production
           VITE_BASE_PATH: /tracking-app/
 
+      - name: Verify build output
+        run: |
+          echo "Build output:"
+          ls -la dist/
+          echo "Checking index.html:"
+          head -20 dist/index.html
+
       - name: Create 404.html for SPA routing
         run: cp dist/index.html dist/404.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

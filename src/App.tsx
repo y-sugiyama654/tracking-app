@@ -5,8 +5,11 @@ import Contact from './pages/Contact';
 import './App.css';
 
 function App() {
+  // GitHub Pagesのbaseパスを設定
+  const basename = import.meta.env.BASE_URL;
+
   return (
-    <Router>
+    <Router basename={basename}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

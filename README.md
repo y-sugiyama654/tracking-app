@@ -2,6 +2,40 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## GitHub Pagesへのデプロイ
+
+このプロジェクトはGitHub Pagesに自動デプロイされるように設定されています。
+
+### デプロイ手順
+
+1. **GitHubリポジトリの設定**
+   - GitHubリポジトリの「Settings」→「Pages」に移動
+   - 「Source」で「GitHub Actions」を選択
+
+2. **リポジトリ名の確認**
+   - リポジトリ名が`tracking-app`以外の場合は、`vite.config.ts`の`base`パスを変更してください
+   - 例: リポジトリ名が`my-app`の場合、`base: '/my-app/'`に変更
+
+3. **自動デプロイ**
+   - `main`ブランチにプッシュすると、自動的にGitHub Actionsが実行され、GitHub Pagesにデプロイされます
+   - デプロイの進捗は「Actions」タブで確認できます
+
+4. **デプロイ後のURL**
+   - デプロイが完了すると、以下のURLでアクセスできます:
+   - `https://[ユーザー名].github.io/tracking-app/`
+
+### 手動デプロイ（オプション）
+
+GitHub Actionsを使わずに手動でデプロイする場合:
+
+```bash
+# ビルド
+npm run build
+
+# gh-pagesブランチにデプロイ（gh-pagesパッケージが必要）
+npx gh-pages -d dist
+```
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh

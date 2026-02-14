@@ -4,8 +4,10 @@ import './Contact.css';
 
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
+    lastName: '',
+    firstName: '',
     email: '',
+    phone: '',
     company: '',
     message: ''
   });
@@ -26,7 +28,7 @@ function Contact() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ lastName: '', firstName: '', email: '', phone: '', company: '', message: '' });
     }, 3000);
   };
 
@@ -89,16 +91,43 @@ function Contact() {
               ) : (
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <label htmlFor="name">お名前 <span className="required">*</span></label>
+                    <label htmlFor="company">会社名 <span className="required">*</span></label>
                     <input
                       type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
+                      id="company"
+                      name="company"
+                      value={formData.company}
                       onChange={handleChange}
-                      required
-                      placeholder="山田 太郎"
+                      placeholder="株式会社サンプル"
                     />
+                  </div>
+                  
+                  <div className="name-fields">
+                    <div className="form-group">
+                      <label htmlFor="lastName">姓 <span className="required">*</span></label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                        placeholder="山田"
+                      />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="firstName">名 <span className="required">*</span></label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                        placeholder="太郎"
+                      />
+                    </div>
                   </div>
 
                   <div className="form-group">
@@ -115,14 +144,15 @@ function Contact() {
                   </div>
 
                   <div className="form-group">
-                    <label htmlFor="company">会社名</label>
+                    <label htmlFor="phone">電話番号 <span className="required">*</span></label>
                     <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
-                      placeholder="株式会社サンプル"
+                      required
+                      placeholder="090-1234-5678"
                     />
                   </div>
 

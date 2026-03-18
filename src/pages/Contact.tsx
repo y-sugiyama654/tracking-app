@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Contact.css';
 
 function Contact() {
@@ -12,7 +12,7 @@ function Contact() {
     message: ''
   });
 
-  const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -25,11 +25,7 @@ function Contact() {
     e.preventDefault();
     // フォーム送信の処理（実際の実装ではAPIを呼び出す）
     console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ lastName: '', firstName: '', email: '', phone: '', company: '', message: '' });
-    }, 3000);
+    navigate('/contact/complete');
   };
 
   return (
@@ -82,14 +78,7 @@ function Contact() {
             </div>
 
             <div className="contact-form-container">
-              {submitted ? (
-                <div className="form-success">
-                  <div className="success-icon">✓</div>
-                  <h2>送信完了</h2>
-                  <p>お問い合わせありがとうございます。<br />担当者よりご連絡いたします。</p>
-                </div>
-              ) : (
-                <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-group">
                     <label htmlFor="company">会社名 <span className="required">*</span></label>
                     <input
@@ -172,8 +161,7 @@ function Contact() {
                   <button type="submit" className="btn btn-primary btn-submit">
                     送信する
                   </button>
-                </form>
-              )}
+              </form>
             </div>
           </div>
         </div>

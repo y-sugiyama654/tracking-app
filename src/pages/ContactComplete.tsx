@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './ContactComplete.css';
 
 function ContactComplete() {
@@ -6,11 +5,11 @@ function ContactComplete() {
     <div className="contact-complete">
       <header className="header">
         <nav className="nav">
-          <Link to="/" className="nav-brand">TaskFlow</Link>
+          <a href="../../" className="nav-brand">TaskFlow</a>
           <div className="nav-links">
-            <Link to="/" className="nav-link">ホーム</Link>
-            <Link to="/about" className="nav-link">会社概要</Link>
-            <Link to="/contact" className="nav-link">お問い合わせ</Link>
+            <a href="../../" className="nav-link">ホーム</a>
+            <a href="../../about/" className="nav-link">会社概要</a>
+            <a href="../../contact/" className="nav-link">お問い合わせ</a>
           </div>
         </nav>
       </header>
@@ -24,7 +23,7 @@ function ContactComplete() {
               お問い合わせいただきありがとうございます。<br />
               担当者より2営業日以内にご連絡いたします。
             </p>
-            <Link to="/" className="btn btn-primary">トップページへ戻る</Link>
+            <a href="../../" className="btn btn-primary">トップページへ戻る</a>
           </div>
         </div>
       </main>

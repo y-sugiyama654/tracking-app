@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import './Contact.css';
 
 function Contact() {
@@ -12,8 +11,6 @@ function Contact() {
     message: ''
   });
 
-  const navigate = useNavigate();
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -23,20 +20,19 @@ function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信の処理（実際の実装ではAPIを呼び出す）
     console.log('Form submitted:', formData);
-    navigate('/contact/complete');
+    window.location.href = './complete/';
   };
 
   return (
     <div className="contact">
       <header className="header">
         <nav className="nav">
-          <Link to="/" className="nav-brand">TaskFlow</Link>
+          <a href="../" className="nav-brand">TaskFlow</a>
           <div className="nav-links">
-            <Link to="/" className="nav-link">ホーム</Link>
-            <Link to="/about" className="nav-link">会社概要</Link>
-            <Link to="/contact" className="nav-link active">お問い合わせ</Link>
+            <a href="../" className="nav-link">ホーム</a>
+            <a href="../about/" className="nav-link">会社概要</a>
+            <a href="../contact/" className="nav-link active">お問い合わせ</a>
           </div>
         </nav>
       </header>
@@ -51,7 +47,7 @@ function Contact() {
                 お気軽にお問い合わせください。
                 担当者より2営業日以内にご返信いたします。
               </p>
-              
+
               <div className="contact-details">
                 <div className="contact-detail-item">
                   <div className="contact-detail-icon">📧</div>
@@ -90,7 +86,7 @@ function Contact() {
                       placeholder="株式会社サンプル"
                     />
                   </div>
-                  
+
                   <div className="name-fields">
                     <div className="form-group">
                       <label htmlFor="lastName">姓 <span className="required">*</span></label>

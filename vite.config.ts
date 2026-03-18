@@ -8,4 +8,14 @@ export default defineConfig({
   // 環境変数VITE_BASE_PATHが設定されている場合はそれを使用
   // それ以外の場合は、本番環境では/tracking-app/、開発環境では/を使用
   base: process.env.VITE_BASE_PATH || (process.env.NODE_ENV === 'production' ? '/tracking-app/' : '/'),
+  build: {
+    rollupOptions: {
+      input: {
+        home: 'index.html',
+        about: 'about/index.html',
+        contact: 'contact/index.html',
+        contactComplete: 'contact/complete/index.html',
+      },
+    },
+  },
 })

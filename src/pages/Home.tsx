@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './Home.css';
 
 function Home() {
@@ -8,9 +7,9 @@ function Home() {
         <nav className="nav">
           <div className="nav-brand">TaskFlow</div>
           <div className="nav-links">
-            <Link to="/" className="nav-link active">ホーム</Link>
-            <Link to="/about" className="nav-link">会社概要</Link>
-            <Link to="/contact" className="nav-link">お問い合わせ</Link>
+            <a href="./" className="nav-link active">ホーム</a>
+            <a href="./about/" className="nav-link">会社概要</a>
+            <a href="./contact/" className="nav-link">お問い合わせ</a>
           </div>
         </nav>
       </header>
@@ -28,9 +27,9 @@ function Home() {
               直感的なUIと強力な機能で、あなたの仕事を効率化します。
             </p>
             <div className="hero-buttons">
-              <Link to="/contact" className="btn btn-primary">
+              <a href="./contact/" className="btn btn-primary">
                 無料で始める
-              </Link>
+              </a>
             </div>
           </div>
         </section>
@@ -93,9 +92,9 @@ function Home() {
               <br />
               クレジットカードは不要です。
             </p>
-            <Link to="/contact" className="btn btn-primary btn-large">
+            <a href="./contact/" className="btn btn-primary btn-large">
               無料トライアルを開始
-            </Link>
+            </a>
           </div>
         </section>
       </main>
